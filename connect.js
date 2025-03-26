@@ -7,14 +7,13 @@
 // module.exports = {
 //   connectToMongoDB,
 // };
+import mongoose from "mongoose";
 
-const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
 
+const url = "mongodb+srv://raracan895:ENThtiscY0dSadH1@cluster0.gzvsa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-// url = "mongodb+srv:shortner:shortnerpass@cluster0.x1ypihy.mongodb.net/?retryWrites=true&w=majority";
-
-async function connectToMongoDB(url) {
+export async function connectToMongoDB() {
   try {
     await mongoose.connect(url);
     console.log("MongoDB connected");
@@ -23,7 +22,3 @@ async function connectToMongoDB(url) {
     process.exit(1); // Exit the process if MongoDB connection fails
   }
 }
-
-module.exports = {
-  connectToMongoDB,
-};
